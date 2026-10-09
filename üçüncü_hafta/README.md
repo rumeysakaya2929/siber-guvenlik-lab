@@ -1,1 +1,6 @@
+# Soruların Cevapları
 
+1. **Güçlü sunucunuz hangi TLS sürümünü ve şifreyi seçti?** Güçlü sunucu (laboratuvarda test edilen 8443 portundaki sunucu), güncel ve yüksek güvenlikli protokol sürümü olan **TLS 1.3** sürümünü ve güçlü şifreleme suitlerini seçmiştir.
+2. **Güçlü ve zayıf sunucu taraması arasındaki fark neydi; yönetici olsanız neyi kapatırdınız?** Güçlü sunucuda yalnızca güncel ve güvenli protokoller (TLS 1.3) yer alırken; zayıf sunucuda eski, güvensiz protokol sürümleri (TLS 1.0, TLS 1.1) ve zayıf şifreleme algoritmaları açıkça görünmektedir. Yönetici olsaydım eski ve savunmasız protokol sürümlerini **tamamen kapatırdım**.
+3. **mitmproxy sertifikasını eklemeden önce neden uyarı vardı, sonra neden yoktu?** Öncesinde uyarı vardı çünkü `mitmproxy` trafiği deşifre ederken kendi ürettiği yerel kök sertifikayı sunar ve tarayıcı bunu resmi bir otorite olarak tanımaz. Sertifika Firefox "Authorities" listesine güvenilir olarak eklendikten sonra tarayıcı bu sertifikaya güvendiği için uyarı ortadan kalkmıştır.
+4. **Bu saldırı gerçek bankanızda neden kolayca yapılamaz?** Bankacılık uygulamaları ve resmi web siteleri **Sertifika Sabitleme (Certificate Pinning)** ve **HSTS** teknolojilerini kullanır; ayrıca kullanıcının cihazına dışarıdan izinsiz kök sertifika yüklenmesi güvenlik duvarları ve işletim sistemi düzeyinde engellenir.
